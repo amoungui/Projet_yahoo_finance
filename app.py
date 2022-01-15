@@ -38,6 +38,8 @@ def main():
 			result = login(username, password)
 			if result:
 				st.success("Logged In as {}".format(username))
+				st.session_state.runpage = menu[0]
+				st.experimental_rerun()				
 				task = st.selectbox("Task", ["Add Post", "Analytics", "Profiles"])
 				if task == "Add Post":
 					st.subheader("Add Your Post")
