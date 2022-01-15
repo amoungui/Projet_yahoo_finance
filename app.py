@@ -16,12 +16,9 @@ def Orderpage():
 	orderpage = orderPage(st.session_state.runpage)
 	return orderpage
  
-def dashboard():
-    st.subheader('Dashboard')
- 
 def main_page():
-    btn1 = st.sidebar.button('Dashboard')
-    btn2 = st.sidebar.button('Order Page')
+    btn1 = st.sidebar.button('Dashboard', key='home')
+    btn2 = st.sidebar.button('Order Page', key='order')
 
     if btn1:
         st.session_state.runpage = Homepage
