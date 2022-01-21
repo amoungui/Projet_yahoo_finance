@@ -15,7 +15,7 @@ def app():
     ticker_list_order = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/s-and-p-500-companies/master/data/constituents_symbols.txt')
     tickerSymbol_order = st.selectbox('Stock ticker', ticker_list_order) # Select ticker symbol
     tickerData_order = yf.Ticker(tickerSymbol_order) # Get ticker data
-    action = st.text_input("User Name", tickerData_order.info['open'])
+    action = st.text_input("Your Action", tickerData_order.info['open'])
     quantity = st.text_input("Your quantity")    
     if st.button("Add Action"):
         pass        

@@ -12,7 +12,7 @@ import datetime
 
 
 def app():
-    st.title('Order ticker')
+    st.title('Home Page')
 
     # App title
     st.markdown('''
