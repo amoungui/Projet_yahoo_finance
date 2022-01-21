@@ -11,7 +11,7 @@ def app():
 
     # App title
     st.markdown('''
-    Shown are the stock price data for query companies!
+        Shown are the stock price data for query companies!
     ''')
     st.write('---')
 
@@ -64,8 +64,9 @@ def app():
         tickerSymbol_order = st.selectbox('Stock ticker', ticker_list_order) # Select ticker symbol
         tickerData_order = yf.Ticker(tickerSymbol_order) # Get ticker data
         action = st.text_input("User Name", tickerData_order.info['open'])
-        quantity = st.text_input("Your quantity")
-    st.markdown("---")               
+        quantity = st.text_input("Your quantity")    
+        if st.button("Add Action"):
+            pass        
     
     
     
