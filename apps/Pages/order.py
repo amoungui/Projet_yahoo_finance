@@ -15,8 +15,8 @@ def app():
     ''')
     st.write('---')
 
-    # Sidebar
-    st.subheader('Query parameters')
+    # 
+    st.subheader('Search ticker information')
     start_date = st.date_input("Start date", datetime.date(2019, 1, 1))
     end_date = st.date_input("End date", datetime.date(2021, 1, 31))
 
@@ -49,6 +49,26 @@ def app():
 
     ####
     st.write('---')
-    st.write(tickerData.info['open'])
+    
+    st.subheader('Order an action')
 
-    #tickerData.info['longName']
+    # Retrieving tickers data    
+    left_column, right_column = st.columns(2)
+
+    with left_column:
+        start_date_order = st.date_input("Start date", datetime.date(2019, 1, 1))
+        end_date_order = st.date_input("End date", datetime.date(2021, 1, 31))
+        capital = st.text_input("Your entry capital")
+    with right_column:
+        ticker_list_order = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/s-and-p-500-companies/master/data/constituents_symbols.txt')
+        tickerSymbol_order = st.selectbox('Stock ticker', ticker_list_order) # Select ticker symbol
+        tickerData_order = yf.Ticker(tickerSymbol_order) # Get ticker data
+        action = st.text_input("User Name", tickerData_order.info['open'])
+        quantity = st.text_input("Your quantity")
+    st.markdown("---")               
+    
+    
+    
+    
+    
+    
