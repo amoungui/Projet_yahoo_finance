@@ -54,7 +54,6 @@ def app():
 
     # Retrieving tickers data    
     
-    
-    
+    start_date_order = st.date_input("Start date", datetime.date(2019, 1, 1))
     
     
