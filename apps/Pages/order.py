@@ -50,6 +50,5 @@ def app():
     ####
     st.write('---')
     st.write(tickerData.info['open'])
-    st.write(tickerData.info['close'])
 
     #tickerData.info['longName']
