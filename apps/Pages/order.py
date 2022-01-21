@@ -11,14 +11,12 @@ def app():
 
     # App title
     st.markdown('''
-    # Stock Price App
     Shown are the stock price data for query companies!
-
     ''')
     st.write('---')
 
     # Sidebar
-    st.sidebar.subheader('Query parameters')
+    st.subheader('Query parameters')
     start_date = st.date_input("Start date", datetime.date(2019, 1, 1))
     end_date = st.date_input("End date", datetime.date(2021, 1, 31))
 
@@ -50,5 +48,7 @@ def app():
     st.plotly_chart(fig)
 
     ####
-    #st.write('---')
-    #st.write(tickerData.info)
+    st.write('---')
+    st.write(tickerData.info)
+
+    #tickerData.info['longName']
