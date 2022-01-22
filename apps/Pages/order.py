@@ -27,10 +27,13 @@ def app():
     if st.button("Add Action"):
         connect.create_actiontable()
         capital_rest =  float(capital) - float(action)*float(quantity) 
-        result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
-        if result:
+        if capital_rest < 0:
             st.success("success added In as {}".format(tickerSymbol_order))
-            st.experimental_rerun()         
+        else:
+            result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
+            if result:
+                st.success("success added In as {}".format(tickerSymbol_order))
+                st.experimental_rerun()         
     
     
     st.subheader('fetch all action of user!')
