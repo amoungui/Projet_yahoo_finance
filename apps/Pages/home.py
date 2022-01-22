@@ -53,4 +53,4 @@ def app():
     st.plotly_chart(fig)
 
     ####
-    st.write(tickerData.info)
+    ### st.write(tickerData.info['financialCurrency'])

@@ -23,7 +23,7 @@ def app():
     quantity = st.text_input("Your quantity") 
     due_date = datetime.date.today()
     user_id = 1
-    devis = 'USD'
+    devis = tickerData_order.info['financialCurrency'] #'USD'
     if st.button("Add Action"):
         connect.create_actiontable()
         capital_rest =  capital - action*quantity 
@@ -33,3 +33,6 @@ def app():
             st.experimental_rerun()         
     
     
+    st.subheader('fetch all action of user!')
+    lists = connect.all_action_user(user_id)
+    st.write(lists)    
