@@ -26,7 +26,7 @@ def app():
     devis = tickerData_order.info['financialCurrency'] 
     if st.button("Add Action"):
         connect.create_actiontable()
-        capital_rest =  int(capital) - int(action)*int(quantity) 
+        capital_rest =  float(capital) - float(action)*float(quantity) 
         result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
         if result:
             st.success("success added In as {}".format(tickerSymbol_order))
