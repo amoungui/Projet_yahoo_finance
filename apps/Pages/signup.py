@@ -13,12 +13,12 @@ def app():
     new_firstname = st.text_input("firstname")
     new_lastname = st.text_input("lastname")
     new_password = st.text_input("Password", type='password')
-    new_capital = st.text_input("Initial Capital")
-    new_captital_rest = 0
+    #new_capital = st.text_input("Initial Capital")  #new_capital,
+    #new_captital_rest = 0 #  new_captital_rest,
     new_today_date = date.today()
     if st.button("Signup"):
         connect.create_usertable()
-        connect.add_user(new_username, new_firstname, new_lastname, new_capital, new_captital_rest, new_password, new_today_date)
+        connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date)
         st.success("You have successfully created an account")
         st.info("Go to Login Menu to sign in")
         st.experimental_rerun() 

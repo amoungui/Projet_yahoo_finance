@@ -36,7 +36,7 @@ def app():
                 st.experimental_rerun()         
     
     
-    st.subheader('fetch all action of user!')
+    #st.subheader('fetch all action of user!')
     # connect.create_actiontable()
     # lists = connect.all_action_user(1)
     # st.write(lists)    
