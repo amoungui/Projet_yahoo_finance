@@ -30,3 +30,8 @@ class Connexion():
 		self.cursor.execute('SELECT * FROM actions WHERE user_id=?', (user_id))
 		data = self.cursor.fetchall()
 		return data
+
+	def all_users(self):
+		self.cursor.execute('SELECT * FROM users')
+		data = self.cursor.fetchall()
+		return data
