@@ -18,7 +18,10 @@ def app():
     new_today_date = date.today()
     if st.button("Signup"):
         connect.create_usertable()
-        connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date)
-        st.success("You have successfully created an account")
-        st.info("Go to Login Menu to sign in")
-        st.experimental_rerun() 
+        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date) :
+            st.success("You have successfully created an account")
+            st.info("Go to Login Menu to sign in")
+            st.experimental_rerun() 
+        else:
+            st.warning('Please sure that you fill all the fields')
+
