@@ -4,7 +4,11 @@ import pandas as pd
 import yfinance as yf
 import cufflinks as cf
 import datetime
-
+from apps.Database.Connexion import Connexion as conn
+import sqlite3
+obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
+cursor = obj_con.cursor()
+connect = conn(obj_con, cursor)
 
 def app():
     st.title('Order ticker')
@@ -16,8 +20,16 @@ def app():
     tickerSymbol_order = st.selectbox('Stock ticker', ticker_list_order) # Select ticker symbol
     tickerData_order = yf.Ticker(tickerSymbol_order) # Get ticker data
     action = st.text_input("Your Action", tickerData_order.info['open'])
-    quantity = st.text_input("Your quantity")    
+    quantity = st.text_input("Your quantity") 
+    due_date = datetime.date.today()
+    user_id = 1
+    devis = 'USD'
     if st.button("Add Action"):
-        pass        
+        connect.create_actiontable()
+        capital_rest =  capital - action*quantity 
+        result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
+        if result:
+            st.success("success added In as {}".format(tickerSymbol_order))
+            st.experimental_rerun()         
     
     
