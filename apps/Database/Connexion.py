@@ -11,7 +11,7 @@ class Connexion():
 		self.connect.execute('CREATE TABLE IF NOT EXISTS users(username TEXT, firstname TEXT, lastname TEXT, capital REAL,rest_capital REAL, password TEXT, due_date DATE)')
 
 	def create_actiontable(self):
-		self.cursor.execute('CREATE TABLE IF NOT EXISTS action(user_id INT, action TEXT, capital_entry TEXT, capital_rest TEXT, quantity INT, devise TEXT, start_date_ac DATE, end_date_ac DATE, due_date DATE)')
+		self.cursor.execute('CREATE TABLE IF NOT EXISTS actions(user_id INT, action TEXT, capital_entry TEXT, capital_rest TEXT, quantity INT, devise TEXT, start_date_ac DATE, end_date_ac DATE, due_date DATE)')
 
 	def add_user(self, username, firstname, lastname, capital, rest_capital, password, due_date):
 		self.cursor.execute('INSERT INTO users(username, firstname, lastname, capital, rest_capital, password, due_date) VALUES (?, ?, ?, ?, ?, ?, ?)',(username, firstname, lastname, capital, rest_capital, password, due_date))
@@ -23,10 +23,10 @@ class Connexion():
 		return data
 
 	def add_action(self, user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date):
-		self.cursor.execute('INSERT INTO action(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date) VALUES (?, ?, ?, ?, ?, ?, ?)',(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date))
+		self.cursor.execute('INSERT INTO actions(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date) VALUES (?, ?, ?, ?, ?, ?, ?)',(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date))
 		self.connect.commit()
 
 	def all_action_user(self, user_id):
-		self.cursor.execute('SELECT * FROM users WHERE user_id=?', (user_id))
+		self.cursor.execute('SELECT * FROM actions WHERE user_id=?', (user_id))
 		data = self.cursor.fetchall()
 		return data
