@@ -34,6 +34,6 @@ def app():
     
     
     st.subheader('fetch all action of user!')
-    connect.create_actiontable()
-    lists = connect.all_action_user(user_id)
-    st.write(lists)    
+    # connect.create_actiontable()
+    # lists = connect.all_action_user(1)
+    # st.write(lists)    
