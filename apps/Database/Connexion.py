@@ -23,13 +23,8 @@ class Connexion():
 		data = self.cursor.fetchall()
 		return data
 
-	def check_username_exist(self, username):
-		self.cursor.execute('SELECT * FROM users WHERE username=?', (username))
-		data = self.cursor.fetchall()
-		return data
-
-	def check_username(self, username):
-		self.cursor.execute('SELECT * FROM users WHERE username=?', (username))
+	def get_user_by_username(self, username):
+		self.cursor.execute('SELECT * FROM users WHERE username="{}"'.format(username))
 		data = self.cursor.fetchall()
 		return data
 

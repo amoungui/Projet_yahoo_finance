@@ -14,9 +14,9 @@ connect = conn(obj_con, cursor)
 def app():
     if 'auth' not in st.session_state:
         st.write('\n\n')
-        st.info('Log in to get all Action you want!')
+        st.info('Log in to get all Actions you want, Please go to login Page')
     else:
-        user = connect.check_username_exist(str(st.session_state.username))
+        user = connect.get_user_by_username(str(st.session_state.username))
         st.write(user)
     
         st.title('Order ticker')
