@@ -21,6 +21,7 @@ def app():
                     'username': username,
                     'password': password
                 }            
+                st.session_state["username"] = username
             st.experimental_rerun() 
     
     st.write(st.session_state)

@@ -21,5 +21,5 @@ def app():
         if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date):
             st.success("You have successfully created an account")
             st.info("Go to Login Menu to sign in")
-            st.experimental_rerun() 
+        st.experimental_rerun() 
 
