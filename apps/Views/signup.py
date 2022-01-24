@@ -14,9 +14,11 @@ def on_changed():
 def app():
     st.title('Signup')
     st.subheader("Create New Account")
-    new_username = st.text_input("Username", on_change=on_changed(), key='new_username')
-    if connect.check_username_exist(str(st.session_state["alias"])):
+    new_username = st.text_input("Username")
+    if connect.check_username_exist(new_username):
         st.info('User '+ str(st.session_state["alias"]) + 'Already exist in database, please enter another username')    
+    else:
+        pass
     new_firstname = st.text_input("firstname")
     new_lastname = st.text_input("lastname")
     new_password = st.text_input("Password", type='password')
