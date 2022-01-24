@@ -23,7 +23,11 @@ def app():
         st.info('Welcome, You are logged as ' + st.session_state.auth.username)
     else:
         pass
-        #st.write(st.session_state)
+    
+    if 'register' in st.session_state:
+        st.info('Hello '+ st.session_state.register.username +' Thanks for your registration. Go to login to log app')
+
+    st.write(st.session_state)
     # 
     st.subheader('Search ticker information')
     start_date = st.date_input("Start date", datetime.date(2019, 1, 1))
