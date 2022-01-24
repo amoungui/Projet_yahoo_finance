@@ -5,6 +5,7 @@ obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
 
+
 def app():
     st.title('Login')
 
@@ -13,7 +14,13 @@ def app():
     if st.button("Login"):
         connect.create_usertable()
         result = connect.login(username, password)
+        if 'auth' not in st.session_state:
+            st.session_state.username = {
+                'username': username,
+                'password': password
+            }
         if result:
             st.success("Logged In as {}".format(username))
             st.experimental_rerun() 
- 
+    
+    st.write(st.session_state)

@@ -29,14 +29,10 @@ def app():
         capital_rest =  float(capital) - float(action)*float(quantity) 
         if capital_rest < 0:
             st.warning('Your Capital {} must not be less than action({})*quantity({})'.format(capital, action, quantity))
-        else:
-            result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
-            if result:
-                st.success("success added In as {}".format(tickerSymbol_order))
-                st.experimental_rerun()         
+
+        result = connect.add_action(user_id, action, capital, capital_rest, quantity, devis, start_date_order, end_date_order, due_date)
+        if result:
+            st.success("success added In as {}".format(tickerSymbol_order))
+            st.experimental_rerun()         
     
-    
-    #st.subheader('fetch all action of user!')
-    # connect.create_actiontable()
-    # lists = connect.all_action_user(1)
-    # st.write(lists)    
+   
