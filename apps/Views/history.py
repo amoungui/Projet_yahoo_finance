@@ -4,15 +4,16 @@ import sqlite3
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
+#str(st.session_state.username)
 
 def app():
     st.title('historic of activities')
 
     st.subheader('fetch all action of user!')
     connect.create_actiontable()
-    users = connect.all_users()
-    if users:
-        st.write(users)
-    lists = connect.all_action_user(1)
-    if lists:
-        st.write(lists) 
+    user = connect.check_username_exist(str(st.session_state.username))
+    if user:
+        pass
+        #lists = connect.all_action_user(1)
+    #if lists:
+        #st.write(lists) 
