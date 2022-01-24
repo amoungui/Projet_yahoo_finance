@@ -14,7 +14,7 @@ if 'auth' not in st.session_state:
     app.add_app("Signup", signup.app)
 else:
     app.add_app("Historique", history.app)    
-    app.add_app("Logout", logout.app)
+    app.add_app("Logout as "+ str(st.session_state.username), logout.app)
 # The main app
 app.run()
 

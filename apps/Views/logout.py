@@ -10,3 +10,5 @@ def app():
         st.experimental_rerun() 
     
     st.write(st.session_state)
+    st.write(st.session_state.auth)
+    st.write(st.session_state.auth.username)
