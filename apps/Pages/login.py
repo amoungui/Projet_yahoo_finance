@@ -14,13 +14,13 @@ def app():
     if st.button("Login"):
         connect.create_usertable()
         result = connect.login(username, password)
-        if 'auth' not in st.session_state:
-            st.session_state.username = {
-                'username': username,
-                'password': password
-            }
         if result:
             st.success("Logged In as {}".format(username))
+            if 'auth' not in st.session_state:
+                st.session_state.username = {
+                    'username': username,
+                    'password': password
+                }            
             st.experimental_rerun() 
     
     st.write(st.session_state)
