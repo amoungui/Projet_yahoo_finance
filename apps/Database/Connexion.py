@@ -28,11 +28,6 @@ class Connexion():
 		data = self.cursor.fetchall()
 		return data
 
-	def check_registration(self, username):
-		self.cursor.execute('SELECT * FROM users WHERE username=?', (username))
-		data = self.cursor.fetchall()
-		return data
-
 	def add_action(self, user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date):
 		self.cursor.execute('INSERT INTO actions(user_id, action, capital_entry, capital_rest, quantity, devise, start_date_ac, end_date_ac, due_date) VALUES (?, ?, ?, ?, ?, ?, ?,?, ?)',(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date))
 		self.connect.commit()
