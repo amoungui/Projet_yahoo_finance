@@ -7,19 +7,13 @@ connect = conn(obj_con, cursor)
 #str(st.session_state.username)
 
 def app():
-    st.title('historic of activities')
-
-    st.subheader('fetch all action of user!')
-    connect.create_actiontable()
     if 'auth' not in st.session_state:
+        st.title('historic of activities')
+
+        st.subheader('fetch all action of user!')
+                
         st.write('\n\n')
         st.info('Log in to view all your last transactions!')
     else:
         user = connect.get_user_by_username(str(st.session_state.username))
-        
         st.write(user)
-    if user:
-        pass
-        #lists = connect.all_action_user(1)
-    #if lists:
-        #st.write(lists) 
