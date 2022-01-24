@@ -11,7 +11,12 @@ def app():
 
     st.subheader('fetch all action of user!')
     connect.create_actiontable()
-    user = connect.check_username_exist(str(st.session_state.username))
+    if 'auth' not in st.session_state:
+        st.write('\n\n')
+        st.info('Log in to view all your last transactions!')
+    else:
+        user = connect.check_username_exist(str(st.session_state.username))
+        
     st.write(user)
     if user:
         pass
