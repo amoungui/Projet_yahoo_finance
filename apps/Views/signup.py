@@ -5,7 +5,7 @@ import sqlite3
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
-
+st.session_state.new_username = ''
 # Define callback when text_input changed.
 def on_changed():
     if "alias" not in st.session_state:
