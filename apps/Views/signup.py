@@ -18,14 +18,14 @@ def app():
     new_today_date = date.today()
     if st.button("Signup"):
         connect.create_usertable()
-        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date) == True:
-            st.success("You have successfully created an account")
-            st.info("Go to Login Menu to sign in")
+        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date):
+            #st.success("You have successfully created an account")
+            #st.info("Go to Login Menu to sign in")
             if 'register' not in st.session_state:
                 st.session_state.register = {'username': new_username, 'firstname': new_firstname}
                 st.experimental_rerun()
-            st.experimental_rerun() 
+            #st.experimental_rerun() 
             
-        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date) == False:
-            st.warning('Please sure that you fill all the fields')
+#        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date) == False:
+#            st.warning('Please sure that you fill all the fields')
 

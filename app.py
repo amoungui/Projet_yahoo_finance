@@ -9,11 +9,11 @@ app = MultiApp()
 # Add all your application here
 app.add_app("Home", home.app)
 app.add_app("Order", order.app)
-app.add_app("Historique", history.app)
 if 'auth' not in st.session_state:
     app.add_app("Login", login.app)
     app.add_app("Signup", signup.app)
 else:
+    app.add_app("Historique", history.app)    
     app.add_app("Logout", logout.app)
 # The main app
 app.run()
