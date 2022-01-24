@@ -24,4 +24,4 @@ def app():
                 st.session_state["username"] = username
             st.experimental_rerun() 
     
-    st.write(st.session_state)
+#    st.write(st.session_state)
