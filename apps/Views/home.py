@@ -19,7 +19,11 @@ def app():
         Shown are the stock price data for query companies!
     ''')
     st.write('---')
-    st.write(st.session_state)
+    if 'auth' in st.session_state:
+        st.info('Welcome, You are logged as ' + st.session_state.auth.username)
+    else:
+        pass
+        #st.write(st.session_state)
     # 
     st.subheader('Search ticker information')
     start_date = st.date_input("Start date", datetime.date(2019, 1, 1))
