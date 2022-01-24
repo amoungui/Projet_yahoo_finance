@@ -17,7 +17,7 @@ def app():
         if result:
             st.success("Logged In as {}".format(username))
             if 'auth' not in st.session_state:
-                st.session_state.username = {
+                st.session_state.auth = {
                     'username': username,
                     'password': password
                 }            
