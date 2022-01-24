@@ -19,15 +19,16 @@ def app():
         Shown are the stock price data for query companies!
     ''')
     st.write('---')
-    if 'auth' in st.session_state:
-        st.info('Welcome, You are logged as ' + str(st.session_state.auth.username))
-    else:
-        pass
+
+    #if 'auth' in st.session_state:
+    #    st.info('Welcome, You are logged as ' + str(st.session_state.auth.username))
+    #else:
+    #    pass
     
-    if 'register' in st.session_state:
-        st.info('Hello '+ str(st.session_state.register.username) +' Thanks for your registration. Go to login to log app')
-    else:
-        pass
+    #if 'register' in st.session_state:
+    #    st.info('Hello '+ str(st.session_state.register.username) +' Thanks for your registration. Go to login to log app')
+    #else:
+    #    pass
 
     st.write(st.session_state)
     # 
