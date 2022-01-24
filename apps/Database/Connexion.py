@@ -8,10 +8,10 @@ class Connexion():
 		self.cursor = cursor
 
 	def create_usertable(self):
-		self.connect.execute('CREATE TABLE IF NOT EXISTS users(username TEXT, firstname TEXT, lastname TEXT, password TEXT, due_date DATE)')
+		self.connect.execute('CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, firstname TEXT, lastname TEXT, password TEXT, due_date DATE)')
 
 	def create_actiontable(self):
-		self.cursor.execute('CREATE TABLE IF NOT EXISTS actions(user_id INT, action TEXT, capital_entry TEXT, capital_rest TEXT, quantity INT, devise TEXT, start_date_ac DATE, end_date_ac DATE, due_date DATE)')
+		self.cursor.execute('CREATE TABLE IF NOT EXISTS actions(action_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INT, action TEXT, capital_entry TEXT, capital_rest TEXT, quantity INT, devise TEXT, start_date_ac DATE, end_date_ac DATE, due_date DATE)')
 
 	def add_user(self, username, firstname, lastname, password, due_date):
 		self.cursor.execute('INSERT INTO users(username, firstname, lastname, password, due_date) VALUES (?, ?, ?, ?, ?)',(username, firstname, lastname, password, due_date))
