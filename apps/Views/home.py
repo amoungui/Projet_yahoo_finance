@@ -20,12 +20,12 @@ def app():
     ''')
     st.write('---')
     if 'auth' in st.session_state:
-        st.info('Welcome, You are logged as ' + st.session_state.auth)
+        st.info('Welcome, You are logged as ' + str(st.session_state.auth.username))
     else:
         pass
     
     if 'register' in st.session_state:
-        st.info('Hello '+ st.session_state.register +' Thanks for your registration. Go to login to log app')
+        st.info('Hello '+ str(st.session_state.register.username) +' Thanks for your registration. Go to login to log app')
     else:
         pass
 
