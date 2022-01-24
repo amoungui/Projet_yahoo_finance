@@ -10,13 +10,15 @@ obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
 
-if 'auth' not in st.session_state:
-    st.write('\n\n')
-    st.info('Log in to get all Action you want!')
-else:
-    user = connect.check_username_exist(str(st.session_state.username))
-    st.write(user)
-    def app():
+
+def app():
+    if 'auth' not in st.session_state:
+        st.write('\n\n')
+        st.info('Log in to get all Action you want!')
+    else:
+        user = connect.check_username_exist(str(st.session_state.username))
+        st.write(user)
+    
         st.title('Order ticker')
 
         start_date_order = st.date_input("Start date", datetime.date(2019, 1, 1))
@@ -41,4 +43,3 @@ else:
                 st.success("success added In as {}".format(tickerSymbol_order))
                 st.experimental_rerun()         
         
-    

@@ -15,9 +15,9 @@ def app():
         st.write('\n\n')
         st.info('Log in to view all your last transactions!')
     else:
-        user = connect.check_username_exist(str(st.session_state.username))
+        user = connect.check_username(str(st.session_state.username))
         
-    st.write(user)
+        st.write(user)
     if user:
         pass
         #lists = connect.all_action_user(1)
