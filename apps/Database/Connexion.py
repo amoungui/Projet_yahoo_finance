@@ -15,8 +15,8 @@ class Connexion():
 
 	def add_user(self, username, firstname, lastname, password, due_date):
 		self.cursor.execute('INSERT INTO users(username, firstname, lastname, password, due_date) VALUES (?, ?, ?, ?, ?)',(username, firstname, lastname, password, due_date))
-		if self.connect.commit():
-			return True
+		self.connect.commit()
+		return True
 
 	def login(self, username, password):
 		self.cursor.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
