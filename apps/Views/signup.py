@@ -23,9 +23,7 @@ def app():
     new_today_date = date.today()
     if st.button("Signup"):
         connect.create_usertable()
-        connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date)
-        result = connect.check_registration(new_username)
-        if result:
+        if connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date):
             if 'register' not in st.session_state:
                 st.session_state["register"] = new_username
             st.experimental_rerun()
