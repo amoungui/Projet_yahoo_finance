@@ -9,6 +9,7 @@ import sqlite3
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
+user = connect.check_username_exist(str(st.session_state.username))
 
 def app():
     st.title('Order ticker')

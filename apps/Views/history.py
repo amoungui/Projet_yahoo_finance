@@ -12,6 +12,7 @@ def app():
     st.subheader('fetch all action of user!')
     connect.create_actiontable()
     user = connect.check_username_exist(str(st.session_state.username))
+    st.write(user)
     if user:
         pass
         #lists = connect.all_action_user(1)
