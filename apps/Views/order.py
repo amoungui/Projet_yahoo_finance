@@ -17,7 +17,7 @@ def app():
         st.info('Log in to get all Actions you want, Please go to login Page')
     else:
         user = connect.get_user_by_username(str(st.session_state.username))
-        st.write(user[0][0])
+        #st.write(user[0][0])
     
         st.title('Order ticker')
 
