@@ -5,6 +5,7 @@ import sqlite3
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
+connect.create_actiontable()
 #str(st.session_state.username)
 
 def app():
