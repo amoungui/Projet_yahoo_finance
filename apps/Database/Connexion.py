@@ -28,6 +28,11 @@ class Connexion():
 		data = self.cursor.fetchall()
 		return data
 
+	def get_actions_by_id(self, id):
+		self.cursor.execute('SELECT * FROM actions WHERE user_id="{}"'.format(id))
+		data = self.cursor.fetchall()
+		return data
+
 	def add_action(self, user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date):
 		self.cursor.execute('INSERT INTO actions(user_id, action, capital_entry, capital_rest, quantity, devise, start_date_ac, end_date_ac, due_date) VALUES (?, ?, ?, ?, ?, ?, ?,?, ?)',(user_id, action, capital_entry, capital_rest, quantity, devis, start_date_ac, end_date_ac, due_date))
 		self.connect.commit()

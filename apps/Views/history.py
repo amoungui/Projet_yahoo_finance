@@ -10,8 +10,6 @@ connect = conn(obj_con, cursor)
 def app():
     if 'auth' not in st.session_state:
         st.title('historic of activities')
-
-        st.subheader('fetch all action of user!')
                 
         st.write('\n')
         st.info('Log in to view all your last transactions!')
@@ -54,4 +52,46 @@ def app():
         )                
         st.write('\n\n')
         st.subheader('Your historic of transaction')
-                
+        actions = connect.get_actions_by_id(user[0][0])
+        if actions:
+            # bootstrap 4 collapse example
+            components.html(
+                """
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">username</th>
+                        <th scope="col">your action</th>
+                        <th scope="col">capital entry</th>
+                        <th scope="col">capital restant</th>
+                        <th scope="col">quantity of action</th>
+                        <th scope="col">devise of action</th>
+                        <th scope="col">start date</th>
+                        <th scope="col">end date</th>
+                        <th scope="col">soumission date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"> > </th>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                        <td>{}</td>
+                    </tr>
+                </tbody>
+                </table>
+                """.format(user[0][1])
+                ,height=600,
+            )                
+        else:
+            st.info("You currently don't have any action, please go to order page to get an action! ")
