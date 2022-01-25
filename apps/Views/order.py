@@ -17,7 +17,7 @@ def app():
         st.info('Log in to get all Actions you want, Please go to login Page')
     else:
         user = connect.get_user_by_username(str(st.session_state.username))
-        st.write(user)
+        st.write(user[0])
     
         st.title('Order ticker')
 
@@ -30,7 +30,7 @@ def app():
         action = st.text_input("Your Action", tickerData_order.info['open'])
         quantity = st.text_input("Your quantity") 
         due_date = datetime.date.today()
-        user_id = int(user[0])
+        user_id = 1 #user[0]
         devis = tickerData_order.info['financialCurrency'] 
         if st.button("Add Action"):
             connect.create_actiontable()
