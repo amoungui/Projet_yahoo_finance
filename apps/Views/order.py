@@ -30,7 +30,7 @@ def app():
         action = st.text_input("Your Action", tickerData_order.info['open'])
         quantity = st.text_input("Your quantity") 
         due_date = datetime.date.today()
-        user_id = 1 #user[0]
+        user_id = user[0][0]
         devis = tickerData_order.info['financialCurrency'] 
         if st.button("Add Action"):
             connect.create_actiontable()
