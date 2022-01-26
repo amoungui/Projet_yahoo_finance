@@ -18,7 +18,14 @@ def app():
         ,height=600,
     )    
     if 'auth' not in st.session_state:
-        st.title('historic of activities')
+        components.html(
+            """
+                <h1>historic of activities</h1>
+                <div class="alert alert-success">Log in to view all your last transactions!</div>
+            """
+            ,height=600,
+        )
+        st.title('')
                 
         st.write('\n')
         st.info('Log in to view all your last transactions!')
