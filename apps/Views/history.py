@@ -58,6 +58,7 @@ def app():
         )                
         st.subheader('Your historic of transaction')
         actions = connect.get_actions_by_id(user[0][0])
+        st.write(actions)
         if actions:
             # bootstrap 4 collapse example
             components.html(
