@@ -9,6 +9,14 @@ connect.create_actiontable()
 #str(st.session_state.username)
 
 def app():
+    components.html(
+        """
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        """
+        ,height=600,
+    )    
     if 'auth' not in st.session_state:
         st.title('historic of activities')
                 
@@ -25,9 +33,6 @@ def app():
         # bootstrap 4 collapse example
         components.html(
             """
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -51,16 +56,12 @@ def app():
             """.format(user[0][1], user[0][2], user[0][3], user[0][4])
             ,height=600,
         )                
-        st.write('\n\n')
         st.subheader('Your historic of transaction')
         actions = connect.get_actions_by_id(user[0][0])
         if actions:
             # bootstrap 4 collapse example
             components.html(
                 """
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                 <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -76,8 +77,12 @@ def app():
                         <th scope="col">soumission date</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody>"""
+                ,height=600,
+            )           
+            
+            components.html(
+                    """<tr>
                         <th scope="row"> > </th>
                         <td>{}</td>
                         <td>{}</td>
@@ -91,7 +96,7 @@ def app():
                     </tr>
                 </tbody>
                 </table>
-                """.format(user[0][1])
+                """.format('serge')
                 ,height=600,
             )                
         else:
