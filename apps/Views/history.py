@@ -15,22 +15,14 @@ def app():
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         """
-        ,height=600,
+        ,height=3,
     )    
     if 'auth' not in st.session_state:
-        components.html(
-            """
-                <h1>historic of activities</h1>
-                <div class="alert alert-success">Log in to view all your last transactions!</div>
-            """
-            ,height=600,
-        )
-        st.title('')
-                
+
+        st.title('Historic of Transactions')
         st.write('\n')
         st.info('Log in to view all your last transactions!')
     else:
-        
         st.title('historic of activities')
         st.write('\n\n')
         st.subheader('user details')
