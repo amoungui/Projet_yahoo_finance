@@ -68,7 +68,7 @@ def app():
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">username</th>
+                        <th scope="col">alias</th>
                         <th scope="col">your action</th>
                         <th scope="col">capital entry</th>
                         <th scope="col">capital restant</th>
