@@ -43,4 +43,5 @@ def app():
             if result:
                 st.success("success added In as {}".format(tickerSymbol_order))
                 st.experimental_rerun()         
-            st.success("success added In as {}".format(tickerSymbol_order))
+            st.success("Ticker success added In as {}, do you want ordered an other ticker?".format(tickerSymbol_order))
+            st.success(" If not, go to historic Page to see the historic of your transactions")

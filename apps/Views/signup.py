@@ -14,6 +14,9 @@ def on_changed():
 
 def app():
     st.title('Signup')
+    if 'register' in st.session_state:
+        st.success('Welcome Ms/Mr {}, go to login page to log in! '.format(st.session_state["register"]))
+        
     st.subheader("Create New Account")
     new_username = st.text_input("Username")
     new_firstname = st.text_input("firstname")
@@ -29,5 +32,5 @@ def app():
             if 'register' not in st.session_state:
                 st.session_state["register"] = new_username
             st.experimental_rerun()
-        st.success('Welcom Ms/Mr {}, go to login page to log in! '.format(st.session_state["register"]))
+        
 
