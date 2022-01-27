@@ -10,7 +10,7 @@ def app():
 
     # App title
     st.markdown('''
-        ## Search ticker information
+        # Search ticker information
     ''')
     st.write('---')
 

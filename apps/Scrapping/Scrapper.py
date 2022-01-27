@@ -83,7 +83,7 @@ class Scrapper():
 
 
 if __name__ == '__main__':
-    home = HomePage()
+    home = Scrapper()
     #print(home.real_time_price('BRK-B'))
     stock = ['BRK-B', 'PYPL', 'TWTR', 'AAPL', 'AMZN', 'MSFT', 'FB', 'GOOG']
 
