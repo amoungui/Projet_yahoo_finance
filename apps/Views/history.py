@@ -101,14 +101,14 @@ def app():
                     </table>
                     """.format(
                             str(user[0][1]), 
-                            #str(action[0][2]), 
-                            #str(action[0][3]), 
-                            #str(action[0][4]), 
-                            #str(action[0][5]), 
-                            #str(action[0][6]), 
-                            #str(action[0][7]), 
-                            #str(action[0][8]), 
-                            #str(action[0][9])
+                            str(action[2]), 
+                            str(action[3]), 
+                            str(action[4]), 
+                            str(action[5]), 
+                            str(action[6]), 
+                            str(action[7]), 
+                            str(action[8]), 
+                            str(action[9])
                         )
                     ,height=600,
                 )                
