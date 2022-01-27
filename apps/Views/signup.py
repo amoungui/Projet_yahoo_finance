@@ -13,7 +13,6 @@ def on_changed():
         st.session_state["alias"] = st.session_state.new_username
 
 def app():
-    st.set_page_config(page_title="Sign Up Page", page_icon=":bar_chart:") # , layout="wide"
     st.title('Signup')
     st.subheader("Create New Account")
     new_username = st.text_input("Username")

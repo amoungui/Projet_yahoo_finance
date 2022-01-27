@@ -13,7 +13,6 @@ connect = conn(obj_con, cursor)
 
 
 def app():
-    st.set_page_config(page_title="Order Page", page_icon=":bar_chart:") # , layout="wide"
     if 'auth' not in st.session_state:
         st.write('\n\n')
         st.info('Log in to get all Actions you want, Please go to login Page')

@@ -8,7 +8,6 @@ connect = conn(obj_con, cursor)
 
 
 def app():
-    st.set_page_config(page_title="Login Page", page_icon=":bar_chart:") # , layout="wide"
     st.title('Login')
 
     username = st.text_input("User Name")
