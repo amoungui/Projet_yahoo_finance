@@ -43,4 +43,4 @@ def app():
             if result:
                 st.success("success added In as {}".format(tickerSymbol_order))
                 st.experimental_rerun()         
-        
+            st.success("success added In as {}".format(tickerSymbol_order))

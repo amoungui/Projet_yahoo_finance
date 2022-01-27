@@ -82,7 +82,7 @@ def app():
                 
                 </table>
                 """
-                ,height=150,
+                ,height=100,
             )           
             for i, action in enumerate(actions):
                 components.html(
@@ -117,7 +117,7 @@ def app():
                             str(action[8]), 
                             str(action[9])
                         )
-                    ,height=50,
+                    ,height=40,
                 )                
         else:
             st.info("Currently, You haven't submitted any action, please go to order page to get action!")
