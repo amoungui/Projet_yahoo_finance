@@ -2,7 +2,6 @@ import streamlit as st
 from multiapp import MultiApp
 from apps.Views import home, order, history, login, signup, logout # import your app modules here
 
-st.set_page_config(page_title="Yahoo financial data visualization", page_icon=":bar_chart:") # , layout="wide"
 app = MultiApp()
 
 

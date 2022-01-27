@@ -1,15 +1,11 @@
 import streamlit as st
-
-def app():
-    st.title('Home')
-
-import streamlit as st
 import numpy as np
 import pandas as pd
 import yfinance as yf
 import cufflinks as cf
 import datetime
 
+st.set_page_config(page_title="Home Page", page_icon=":bar_chart:") # , layout="wide"
 
 def app():
     st.title('Home Page')

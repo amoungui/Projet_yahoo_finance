@@ -1,6 +1,8 @@
 import streamlit as st
 from apps.Database.Connexion import Connexion as conn
 import sqlite3
+
+st.set_page_config(page_title="Login Page", page_icon=":bar_chart:") # , layout="wide"
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
