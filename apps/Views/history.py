@@ -56,7 +56,7 @@ def app():
         st.subheader('Your historic of transaction')
         user = connect.get_user_by_username(str(st.session_state.username))
         actions = connect.get_actions_by_id(user[0][0])
-        #st.write(actions)
+        st.write(actions)
         if actions:
             # bootstrap 4 collapse example
             components.html(
@@ -83,6 +83,7 @@ def app():
                 ,height=200,
             )           
             for action in actions:
+                st.write(action)
                 components.html(
                         """<tr>
                             <th scope="row"> > </th>
@@ -100,14 +101,14 @@ def app():
                     </table>
                     """.format(
                             str(user[0][1]), 
-                            str(action[0][2]), 
-                            str(action[0][3]), 
-                            str(action[0][4]), 
-                            str(action[0][5]), 
-                            str(action[0][6]), 
-                            str(action[0][7]), 
-                            str(action[0][8]), 
-                            str(action[0][9])
+                            #str(action[0][2]), 
+                            #str(action[0][3]), 
+                            #str(action[0][4]), 
+                            #str(action[0][5]), 
+                            #str(action[0][6]), 
+                            #str(action[0][7]), 
+                            #str(action[0][8]), 
+                            #str(action[0][9])
                         )
                     ,height=600,
                 )                
