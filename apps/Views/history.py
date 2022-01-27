@@ -10,7 +10,6 @@ connect.create_actiontable()
 
 def app():
     st.title('Historic of Transactions')
-    user = connect.get_user_by_username(str(st.session_state.username))
     if 'auth' not in st.session_state:
         st.write('\n')
         st.info('Log in to view all your last transactions!')
@@ -18,6 +17,7 @@ def app():
         st.write('\n')
         st.subheader('user details')
         st.write('\n')        
+        user = connect.get_user_by_username(str(st.session_state.username))
         # st.write(user)
         # bootstrap 4 collapse example
         components.html(
@@ -49,6 +49,7 @@ def app():
             ,height=400,
         )                
         st.subheader('Your historic of transaction')
+        user = connect.get_user_by_username(str(st.session_state.username))
         actions = connect.get_actions_by_id(user[0][0])
         st.write(actions)
         if actions:
