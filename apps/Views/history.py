@@ -45,13 +45,18 @@ def app():
                 </tr>
             </tbody>
             </table>
-            """.format(user[0][1], user[0][2], user[0][3], user[0][4])
-            ,height=400,
+            """.format(
+                    user[0][1], 
+                    user[0][2], 
+                    user[0][3], 
+                    user[0][4]
+                )
+            ,height=200,
         )                
         st.subheader('Your historic of transaction')
         user = connect.get_user_by_username(str(st.session_state.username))
         actions = connect.get_actions_by_id(user[0][0])
-        st.write(actions)
+        #st.write(actions)
         if actions:
             # bootstrap 4 collapse example
             components.html(
@@ -75,7 +80,7 @@ def app():
                     </tr>
                 </thead>
                 <tbody>"""
-                ,height=600,
+                ,height=200,
             )           
             for action in actions:
                 components.html(
@@ -93,7 +98,17 @@ def app():
                         </tr>
                     </tbody>
                     </table>
-                    """.format(user[0][1], action[0][2], action[0][3], action[0][4], action[0][5], action[0][6], action[0][7], action[0][8], action[0][9])
+                    """.format(
+                            str(user[0][1]), 
+                            str(action[0][2]), 
+                            str(action[0][3]), 
+                            str(action[0][4]), 
+                            str(action[0][5]), 
+                            str(action[0][6]), 
+                            str(action[0][7]), 
+                            str(action[0][8]), 
+                            str(action[0][9])
+                        )
                     ,height=600,
                 )                
         else:
