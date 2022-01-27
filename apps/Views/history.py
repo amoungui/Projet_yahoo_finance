@@ -93,7 +93,7 @@ def app():
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th scope="row"> > </th>
+                                    <th scope="row">{}</th>
                                     <td>{}</td>
                                     <td>{}</td>
                                     <td>{}</td>
@@ -107,6 +107,7 @@ def app():
                             </tbody>
                         </table>
                     """.format(
+                            str(i),
                             str(user[0][1]), 
                             str(action[2]), 
                             str(action[3]), 
