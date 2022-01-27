@@ -2,6 +2,7 @@ import streamlit as st
 from apps.Database.Connexion import Connexion as conn
 from datetime import date
 import sqlite3
+import time
 
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
@@ -28,6 +29,7 @@ def app():
     if st.button("Signup"):
         connect.create_usertable()
         connect.add_user(new_username, new_firstname, new_lastname, new_password, new_today_date)
+        time.sleep(4)
         if connect.get_user_by_username(new_username):
             if 'register' not in st.session_state:
                 st.session_state["register"] = new_username
