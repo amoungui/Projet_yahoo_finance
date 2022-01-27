@@ -1,7 +1,8 @@
 import streamlit as st
-st.set_page_config(page_title="Log Out Page", page_icon=":bar_chart:") # , layout="wide"
+
 
 def app():
+    st.set_page_config(page_title="Log Out Page", page_icon=":bar_chart:") # , layout="wide"
     st.title('Logout Page')
 
     if st.button("Logout"):

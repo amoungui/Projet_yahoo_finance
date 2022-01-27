@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 from apps.Database.Connexion import Connexion as conn
 import sqlite3
 
-st.set_page_config(page_title="Historic page", layout="wide") # 
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
@@ -11,6 +10,7 @@ connect.create_actiontable()
 #str(st.session_state.username)
 
 def app():
+    st.set_page_config(page_title="Historic page", layout="wide") # 
     st.title('Historic of Transactions')
     user = connect.get_user_by_username(str(st.session_state.username))
     if 'auth' not in st.session_state:

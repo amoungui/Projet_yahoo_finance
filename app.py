@@ -4,7 +4,6 @@ from apps.Views import home, order, history, login, signup, logout # import your
 
 app = MultiApp()
 
-
 # Add all your application here
 app.add_app("Home", home.app)
 app.add_app("Order", order.app)

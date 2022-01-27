@@ -5,9 +5,8 @@ import yfinance as yf
 import cufflinks as cf
 import datetime
 
-st.set_page_config(page_title="Home Page", page_icon=":bar_chart:") # , layout="wide"
-
 def app():
+    st.set_page_config(page_title="Home Page", page_icon=":bar_chart:") # , layout="wide"
     st.title('Home Page')
 
     # App title
