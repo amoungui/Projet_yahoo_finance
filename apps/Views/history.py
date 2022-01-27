@@ -2,6 +2,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 from apps.Database.Connexion import Connexion as conn
 import sqlite3
+
+st.set_page_config(page_title="Historic page", layout="wide") # 
 obj_con = sqlite3.connect('data.my_db', check_same_thread=False)
 cursor = obj_con.cursor()
 connect = conn(obj_con, cursor)
@@ -46,7 +48,7 @@ def app():
             </tbody>
             </table>
             """.format(user[0][1], user[0][2], user[0][3], user[0][4])
-            ,height=10,
+            ,height=100,
         )                
         st.subheader('Your historic of transaction')
         actions = connect.get_actions_by_id(user[0][0])
@@ -96,4 +98,4 @@ def app():
                 ,height=600,
             )                
         else:
-            st.info("You currently don't have any action, please go to order page to get an action! ")
+            st.info("Currently, You haven't submitted any action, please go to order page to get action!")
