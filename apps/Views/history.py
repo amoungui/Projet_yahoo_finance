@@ -51,7 +51,7 @@ def app():
                     user[0][3], 
                     user[0][4]
                 )
-            ,height=200,
+            ,height=100,
         )                
         st.subheader('Your historic of transaction')
         user = connect.get_user_by_username(str(st.session_state.username))
@@ -82,7 +82,7 @@ def app():
                 
                 </table>
                 """
-                ,height=200,
+                ,height=150,
             )           
             for i, action in enumerate(actions):
                 components.html(
@@ -117,7 +117,7 @@ def app():
                             str(action[8]), 
                             str(action[9])
                         )
-                    ,height=600,
+                    ,height=50,
                 )                
         else:
             st.info("Currently, You haven't submitted any action, please go to order page to get action!")
