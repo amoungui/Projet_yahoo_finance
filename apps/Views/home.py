@@ -10,9 +10,10 @@ def app():
 
     # App title
     st.markdown('''
-        # Search ticker information
+        ## Search ticker information
     ''')
-    st.write('---')
+    st.write('---') 
+    
 
     start_date = st.date_input("Start date", datetime.date(2019, 1, 1))
     end_date = st.date_input("End date", datetime.date(2021, 1, 31))
