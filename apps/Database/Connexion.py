@@ -29,7 +29,7 @@ class Connexion():
    			firstname(str), 
       		lastname(str), 
         	password(str), 
-         	due_date(str)
+         	due_date(datetime)
 		Returns:
 			None
 		"""            
@@ -79,9 +79,9 @@ class Connexion():
         	capital_rest (str), 
          	quantity (int), 
           	devis (str), 
-           	start_date_ac (str), 
-            end_date_ac (str), 
-            due_date (str)
+           	start_date_ac (datetime), 
+            end_date_ac (datetime), 
+            due_date (datetime)
 		Returns:
 			None
 		"""
