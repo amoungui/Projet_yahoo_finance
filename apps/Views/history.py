@@ -82,8 +82,8 @@ def app():
                 <tbody>"""
                 ,height=200,
             )           
-            for action in actions:
-                st.write(action)
+            for i, action in enumerate(actions):
+                st.write([i, action])
                 components.html(
                         """<tr>
                             <th scope="row"> > </th>
