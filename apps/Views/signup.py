@@ -23,8 +23,6 @@ def app():
     new_firstname = st.text_input("firstname")
     new_lastname = st.text_input("lastname")
     new_password = st.text_input("Password", type='password')
-    #new_capital = st.text_input("Initial Capital")  #new_capital,
-    #new_captital_rest = 0 #  new_captital_rest,
     new_today_date = date.today()
     if st.button("Signup"):
         connect.create_usertable()

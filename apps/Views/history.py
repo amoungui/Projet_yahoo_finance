@@ -53,7 +53,7 @@ def app():
                 )
             ,height=100,
         )                
-        st.subheader('Your historic of transaction')
+        st.subheader('Your historic of transactions')
         user = connect.get_user_by_username(str(st.session_state.username))
         actions = connect.get_actions_by_id(user[0][0])
         #st.write(actions)
