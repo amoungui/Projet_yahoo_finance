@@ -10,8 +10,8 @@ app = MultiApp()
 app.add_app("Home", home.app)
 app.add_app("Order", order.app)
 app.add_app("Historique", history.app)
-if len(st.session_state) == 0:
-#if 'auth' not in st.session_state:
+#if len(st.session_state) == 0:
+if 'auth' not in st.session_state:
     app.add_app("Login", login.app)
     app.add_app("Signup", signup.app)
 else:    
