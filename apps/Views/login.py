@@ -9,7 +9,7 @@ connect = conn(obj_con, cursor)
 
 def app():
     st.title('Login')
-
+    
     username = st.text_input("User Name")
     password = st.text_input("Password", type='password')
     if st.button("Login"):
@@ -23,5 +23,11 @@ def app():
                     'password': password
                 }            
                 st.session_state["username"] = username
+            else:
+                st.session_state.auth = {
+                    'username': username,
+                    'password': password
+                }            
+                st.session_state["username"] = username                
             st.experimental_rerun() 
     
