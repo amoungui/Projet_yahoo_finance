@@ -10,7 +10,8 @@ app = MultiApp()
 app.add_app("Home", home.app)
 app.add_app("Order", order.app)
 app.add_app("Historique", history.app)
-if len(st.session_state['auth']) == 0:
+if len(st.session_state) == 0:
+#if 'auth' not in st.session_state:
     app.add_app("Login", login.app)
     app.add_app("Signup", signup.app)
 else:    
@@ -22,7 +23,10 @@ app.run()
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
             <style>
-	            footer {visibility: hidden;}
+            MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
