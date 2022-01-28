@@ -5,17 +5,20 @@ from apps.Views import home, order, history, login, signup, logout # import your
 st.set_page_config(page_title="Yahoo financial data visualization", page_icon=":bar_chart:") # , layout="wide"
 app = MultiApp()
 
-
+if 'auth_status' not in st.session_state:
+    st.session_state['auth_status'] = False
+    
 # Add all your application here
 app.add_app("Home", home.app)
 app.add_app("Order", order.app)
 app.add_app("Historique", history.app)
-#if len(st.session_state) == 0:
-if 'auth' not in st.session_state:
+
+if 'auth_status' not in st.session_state or st.session_state['auth_status'] == False:
     app.add_app("Login", login.app)
     app.add_app("Signup", signup.app)
-else:    
+elif st.session_state['auth_status'] == True:    
     app.add_app("as "+ str(st.session_state.username), logout.app)
+
 # The main app
 app.run()
 

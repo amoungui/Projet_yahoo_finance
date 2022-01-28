@@ -15,19 +15,12 @@ def app():
     if st.button("Login"):
         connect.create_usertable()
         result = connect.login(username, password)
-        if result:
-            st.success("Logged In as {}".format(username))
-            if 'auth' not in st.session_state:
-                st.session_state.auth = {
-                    'username': username,
-                    'password': password
-                }            
-                st.session_state["username"] = username
+        if len(result) != 0:
+            if 'auth_status' not in st.session_state:
+                st.session_state.auth_status = True
+                st.session_state["username"] = username  
+                st.success("Logged In as {}".format(username))
             else:
-                st.session_state.auth = {
-                    'username': username,
-                    'password': password
-                }            
-                st.session_state["username"] = username                
+                st.session_state['auth_status'] = False             
             st.experimental_rerun() 
     
