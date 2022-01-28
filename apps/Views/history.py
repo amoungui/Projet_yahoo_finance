@@ -10,7 +10,7 @@ connect.create_actiontable()
 
 def app():
     st.title('Historic of Transactions')
-    if 'auth' not in st.session_state:
+    if st.session_state['auth_status'] == False:
         st.write('\n')
         st.info('Log in to view all your last transactions!')
     else:

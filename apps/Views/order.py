@@ -13,15 +13,13 @@ connect = conn(obj_con, cursor)
 
 
 def app():
-    if 'auth' not in st.session_state:
+    st.title('Order ticker')
+    if st.session_state['auth_status'] == False:
         st.write('\n\n')
         st.info('Log in to get all Actions you want, Please go to login Page')
     else:
         user = connect.get_user_by_username(str(st.session_state.username))
         #st.write(user[0][0])
-    
-        st.title('Order ticker')
-
         start_date_order = st.date_input("Start date", datetime.date(2019, 1, 1))
         end_date_order = st.date_input("End date", datetime.date(2021, 1, 31))
         capital = st.text_input("Your entry capital")
