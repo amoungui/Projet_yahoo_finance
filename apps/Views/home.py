@@ -6,13 +6,14 @@ import yfinance as yf
 import cufflinks as cf
 import datetime
 
+#################################################################
 def stock_data(ticker_df):
     st.header('Rendement')
     # use numerical integer index instead of date    
     #ticker_df = ticker_df.reset_index()
     #ticker_df.rename(columns={'Adj Close': 'Adj_Close'}, inplace=True)
 
-    rendement=(ticker_df['Adj Close'] / ticker_df['Close'])-1
+    rendement=ticker_df['Adj Close'].pct_change()
     #rendement=(1+rendement).cumprod()
     rendement[0]=1
     #print(rendement)
@@ -20,7 +21,7 @@ def stock_data(ticker_df):
     fig, ax =plt.subplots(figsize=(12,6))
     plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
     plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
-    
+    st.pyplot(fig)    
     
 def app():
     st.title('Home Page')
@@ -65,8 +66,7 @@ def app():
     st.plotly_chart(fig_0)
     ####
     # st.write(tickerData.info)
-    fig_1 = stock_data(ticker_df)
-    st.plotly_chart(fig_1)
+    stock_data(ticker_df)
     ####
     ### st.write(tickerData.info['financialCurrency'])
     
