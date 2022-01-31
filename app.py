@@ -13,6 +13,7 @@ app.add_app("Home", home.app)
 app.add_app("Order", order.app)
 app.add_app("Historique", history.app)
 
+
 if 'auth_status' not in st.session_state or st.session_state['auth_status'] == False:
     app.add_app("Login", login.app)
     app.add_app("Signup", signup.app)

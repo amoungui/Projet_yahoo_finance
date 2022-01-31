@@ -1,10 +1,27 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yfinance as yf
 import cufflinks as cf
 import datetime
 
+def stock_data(ticker_df):
+    st.header('Rendement')
+    # use numerical integer index instead of date    
+    #ticker_df = ticker_df.reset_index()
+    #ticker_df.rename(columns={'Adj Close': 'Adj_Close'}, inplace=True)
+
+    rendement=ticker_df['Adj Close'].pct_change()
+    #rendement=(1+rendement).cumprod()
+    rendement[0]=1
+    #print(rendement)
+
+    fig, ax =plt.subplots(figsize=(12,6))
+    plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
+    plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
+    st.pyplot(fig)
+    
 def app():
     st.title('Home Page')
 
@@ -22,6 +39,7 @@ def app():
     ticker_list = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/s-and-p-500-companies/master/data/constituents_symbols.txt')
     tickerSymbol = st.selectbox('Stock ticker', ticker_list) # Select ticker symbol
     tickerData = yf.Ticker(tickerSymbol) # Get ticker data
+    list_action_ticker_standard = ('goog', 'aapl', 'fb', 'nflx', str(tickerData))
     tickerDf = tickerData.history(period='1d', start=start_date, end=end_date) #get the historical prices for this ticker
 
     # Ticker information
@@ -44,6 +62,8 @@ def app():
     qf.add_bollinger_bands()
     fig = qf.iplot(asFigure=True)
     st.plotly_chart(fig)
-
+    ####
+    stock_data(list_action_ticker_standard)
     ####
     ### st.write(tickerData.info['financialCurrency'])
+    
