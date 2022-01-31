@@ -18,10 +18,46 @@ def stock_data(ticker_df):
     rendement[0]=1
     #print(rendement) 
 
-    fig, ax =plt.subplots(figsize=(12,6))
+    fig, ax =plt.subplots(figsize=(12,4)) # 6
     plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
     plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
     st.plotly_chart(fig)    
+    
+def computeSMA(data, window):
+    # simple moving average
+    sma = data.rolling(window=window).mean()
+    return sma
+
+def computeEMA(data, span):
+    # simple moving average
+    ema = data.ewm(span=span, adjust=False).mean()
+    return ema
+
+def construct_df(ticker_df):
+    
+    #get data from yahoo API
+    df = ticker_df
+    # compute both types of moving averages
+    for i in range(50, 250, 50):
+        #print(i)
+        df['SMA_{}'.format(i)] = computeSMA(df['Adj Close'], i)
+    for i in range(50, 250, 50):
+        #print(i)
+        df['EMA_{}'.format(i)] = computeEMA(df['Adj Close'], i)
+
+        return df  
+    
+def plot_data_SMA(ticker_df):
+    st.header('Moyennes mobiles simples')
+    plt.title('Price chart (Adj_Close)')
+    plt.plot(ticker_df.index, ticker_df['Adj Close'])
+
+    for i in range(50, 250, 50):
+        fig, ax=plt.subplots(figsize=(10,5))
+        plt.plot(ticker_df.index, computeSMA(ticker_df['Adj Close'], i), label='SMA_{}'.format(i))
+
+    plt.legend(loc='best')
+    st.pyplot(fig)
     
 def app():
     st.title('Home Page')
@@ -65,8 +101,22 @@ def app():
     fig_0 = qf.iplot(asFigure=True)
     st.plotly_chart(fig_0)
     ####
-    # st.write(tickerData.info)
+    # Rendement 
     stock_data(ticker_df)
-    ####
+    
+    # moyenne mobile simple
+    plot_data_SMA(ticker_df)
+    
+    # Courbe des tendance
+    # Evolution du cours de l'action 
+    st.header("Evolution du cours de l'action")
+    ticker_df.index
+    fig, ax = plt.subplots(figsize=(12,6))
+    ticker_df=ticker_df.asfreq('B')
+    plt.plot(ticker_df.index, ticker_df['Close'].shift(-90))
+    plt.plot(ticker_df.index, ticker_df['Close'].shift(90))
+    plt.plot(ticker_df.index, ticker_df)
+    st.pyplot(fig)    
+    
     ### st.write(tickerData.info['financialCurrency'])
     
