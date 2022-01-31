@@ -60,11 +60,11 @@ def app():
     st.header('**Bollinger Bands**')
     qf=cf.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
     qf.add_bollinger_bands()
-    fig = qf.iplot(asFigure=True)
-    st.plotly_chart(fig)
+    fig_0 = qf.iplot(asFigure=True)
+    st.plotly_chart(fig_0)
     ####
-    fig = stock_data(list_action_ticker_standard)
-    st.pyplot(fig)
+    fig_1 = stock_data(list_action_ticker_standard)
+    st.plotly_chart(fig_1)
     ####
     ### st.write(tickerData.info['financialCurrency'])
     
