@@ -63,7 +63,7 @@ def app():
     fig_0 = qf.iplot(asFigure=True)
     st.plotly_chart(fig_0)
     ####
-    fig_1 = stock_data(list_action_ticker_standard)
+    fig_1 = stock_data(tickerDf)
     st.plotly_chart(fig_1)
     ####
     ### st.write(tickerData.info['financialCurrency'])
