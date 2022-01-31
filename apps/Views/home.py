@@ -20,7 +20,7 @@ def stock_data(ticker_df):
     fig, ax =plt.subplots(figsize=(12,6))
     plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
     plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
-    st.pyplot(fig)
+    
     
 def app():
     st.title('Home Page')
@@ -63,7 +63,8 @@ def app():
     fig = qf.iplot(asFigure=True)
     st.plotly_chart(fig)
     ####
-    stock_data(list_action_ticker_standard)
+    fig = stock_data(list_action_ticker_standard)
+    st.pyplot(fig)
     ####
     ### st.write(tickerData.info['financialCurrency'])
     
