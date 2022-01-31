@@ -16,12 +16,12 @@ def stock_data(ticker_df):
     rendement=ticker_df['Adj Close'].pct_change()
     #rendement=(1+rendement).cumprod()
     rendement[0]=1
-    #print(rendement)
+    #print(rendement) 
 
     fig, ax =plt.subplots(figsize=(12,6))
     plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
     plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
-    st.pyplot(fig)    
+    st.plotly_chart(fig)    
     
 def app():
     st.title('Home Page')
