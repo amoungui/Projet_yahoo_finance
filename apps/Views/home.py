@@ -18,7 +18,7 @@ def stock_data(ticker_df):
     rendement[0]=1
     #print(rendement) 
 
-    fig, ax =plt.subplots(figsize=(12,4)) # 6
+    fig, ax =plt.subplots(figsize=(12,6)) # 6
     plt.plot(ticker_df.index, rendement, linestyle='dashed', marker='o', color ='b', label='Simple')
     plt.plot(ticker_df.index, np.log(rendement+1), linestyle='dashed', marker='o', color ='m', label='Log')
     st.plotly_chart(fig)    
