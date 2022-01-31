@@ -40,7 +40,7 @@ def app():
     ticker_list = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/s-and-p-500-companies/master/data/constituents_symbols.txt')
     tickerSymbol = st.selectbox('Stock ticker', ticker_list) # Select ticker symbol
     tickerData = yf.Ticker(tickerSymbol) # Get ticker data
-    list_action_ticker_standard = ('goog', 'aapl', 'fb', 'nflx', str(tickerData))
+    list_action_ticker_standard = ('goog', 'aapl', 'fb', 'nflx', str(tickerSymbol)) # , str(tickerData)
     ticker_df = yf.download(list_action_ticker_standard, start=start_date, end=end_date)
     tickerDf = tickerData.history(period='1d', start=start_date, end=end_date) #get the historical prices for this ticker
 
