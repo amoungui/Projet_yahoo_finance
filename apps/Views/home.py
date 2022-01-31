@@ -40,6 +40,7 @@ def app():
     tickerSymbol = st.selectbox('Stock ticker', ticker_list) # Select ticker symbol
     tickerData = yf.Ticker(tickerSymbol) # Get ticker data
     list_action_ticker_standard = ('goog', 'aapl', 'fb', 'nflx', str(tickerData))
+    ticker_df = yf.download(list_action_ticker_standard, start=start_date, end=end_date)
     tickerDf = tickerData.history(period='1d', start=start_date, end=end_date) #get the historical prices for this ticker
 
     # Ticker information
@@ -63,8 +64,8 @@ def app():
     fig_0 = qf.iplot(asFigure=True)
     st.plotly_chart(fig_0)
     ####
-    st.write(tickerData.info)
-    fig_1 = stock_data(tickerData)
+    # st.write(tickerData.info)
+    fig_1 = stock_data(ticker_df)
     st.plotly_chart(fig_1)
     ####
     ### st.write(tickerData.info['financialCurrency'])

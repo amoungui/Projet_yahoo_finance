@@ -30,7 +30,7 @@ def app():
         quantity = st.text_input("Your quantity") 
         due_date = datetime.date.today()
         user_id = user[0][0]
-        devis = tickerData_order.info['financialCurrency'] 
+        devis = tickerData_order.info['symbol'] 
         if st.button("Add Action"):
             connect.create_actiontable()
             capital_rest =  float(capital) - float(action)*float(quantity) 
