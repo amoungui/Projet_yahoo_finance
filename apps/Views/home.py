@@ -12,7 +12,7 @@ def stock_data(ticker_df):
     #ticker_df = ticker_df.reset_index()
     #ticker_df.rename(columns={'Adj Close': 'Adj_Close'}, inplace=True)
 
-    rendement=ticker_df['Adj Close'].pct_change()
+    rendement=(ticker_df['Adj Close'] / ticker_df['Close'])-1
     #rendement=(1+rendement).cumprod()
     rendement[0]=1
     #print(rendement)
